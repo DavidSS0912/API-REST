@@ -1,0 +1,53 @@
+[
+    {
+        "idCastral": "12-AFX-1-MX",
+        "Descripcion": "Casa grandre",
+        "arrendador": "David Salazar",
+        "propietarios": [
+            "David Salazar"
+        ]
+    },
+    {
+        "idCastral": "01-AFX-1-MX",
+        "Descripcion": "Casa grandre",
+        "arrendador": "",
+        "propietarios": [
+            "David Salazar"
+        ]
+    },
+    {
+        "idCastral": "55-AFX-1-MX",
+        "Descripcion": "Casa grandre",
+        "arrendador": "Zoé Acosta",
+        "propietarios": [
+            "Zoé Acosta"
+        ]
+    },
+    {
+        "idCastral": "13-AFX-1-MX",
+        "Descripcion": "Casa chica",
+        "arrendador": "Jorge Castro",
+        "propietarios": [
+            "Jorge Castro",
+            "Roberto Castro"
+        ]
+    },
+    {
+        "idCastral": "18-AFX-1-MX",
+        "Descripcion": "Casa grandre",
+        "arrendador": "Marta Aguilar",
+        "propietarios": [
+            "Marta Aguilar"
+        ]
+    },
+    {
+        "idCastral": "20-AFX-1-MX",
+        "Descripcion": "Casa mediana",
+        "arrendador": "Pablo Escobar",
+        "propietarios": [
+            "Pablo Escobar",
+            "Laura Perez",
+            "Carlos Escobar"
+        ]
+    }
+]

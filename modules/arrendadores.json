@@ -1,0 +1,58 @@
+[
+    {
+        "rfc": "SAD150290SB",
+        "nombre": "David Salazar",
+        "proiedades": [
+            "12-AFX-1-MX"
+        ]
+    },
+    {
+        "rfc": "CAJ021594SB",
+        "nombre": "Jorge Castro",
+        "proiedades": [
+            "13-AFX-1-MX"
+        ]
+    },
+    {
+        "rfc": "CAR013296SB",
+        "nombre": "Roberto Castro",
+        "proiedades": [
+            "13-AFX-1-MX"
+        ]
+    },
+    {
+        "rfc": "AGM450212SB",
+        "nombre": "Marta Aguilar",
+        "proiedades": [
+            "18-AFX-1-MX"
+        ]
+    },
+    {
+        "rfc": "ACZ453201SB",
+        "nombre": "Zoé Acosta",
+        "proiedades": [
+            "55-AFX-1-MX"
+        ]
+    },
+    {
+        "rfc": "ESP650312SB",
+        "nombre": "Pablo Escobar",
+        "proiedades": [
+            "20-AFX-1-MX"
+        ]
+    },
+    {
+        "rfc": "PEL846502SB",
+        "nombre": "Laura Perez",
+        "proiedades": [
+            "20-AFX-1-MX"
+        ]
+    },
+    {
+        "rfc": "ESC789545SB",
+        "nombre": "Carlos Escobar",
+        "proiedades": [
+            "20-AFX-1-MX"
+        ]
+    }
+]
