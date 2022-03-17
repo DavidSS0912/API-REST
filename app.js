@@ -12,5 +12,5 @@ app.use(require('./routes/propietarios'))
 app.use(require('./routes/arrendatarios'))
 
 app.listen(3000, () => {
-  console.log('El servidor está inicializado en el puerto 30000')
+  console.log('El servidor está inicializado en el puerto 3000')
 })
