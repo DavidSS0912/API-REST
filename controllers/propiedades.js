@@ -16,26 +16,18 @@ let getById = (id) => {
   }
 }
 
-let create = () => {
-  let nuevaPropiedad = {
-    idCastral: req.body.idCastral,
-    Descripcion: req.body.Descripcion,
-    arrendador: req.body.arrendador,
-    propietarios: req.body.propietarios,
-  }
+let create = (nuevaPropiedad) => {
   propiedades.push(nuevaPropiedad)
   return nuevaPropiedad
 }
 
-let update = () => {
-  const { id } = req.params
-
+let update = (id, body) => {
   for (let index = 0; index < propiedades.length; index++) {
     const propiedad = propiedades[index]
     if (propiedad.idCastral == id) {
-      propiedad.Descripcion = req.body.Descripcion
-      propiedad.arrendador = req.body.arrendador
-      propiedad.propietarios = req.body.propietarios
+      propiedad.Descripcion = body.Descripcion
+      propiedad.arrendador = body.arrendador
+      propiedad.propietarios = body.propietarios
       return propiedad
     } else if (index + 1 == propiedades.length) {
       return { Error: 'No se encontro el id' }
@@ -43,8 +35,7 @@ let update = () => {
   }
 }
 
-let deleteElement = () => {
-  const { id } = req.params
+let deleteElement = (id) => {
   for (let index = 0; index < propiedades.length; index++) {
     const propiedad = propiedades[index]
     if (propiedad.idCastral == id) {

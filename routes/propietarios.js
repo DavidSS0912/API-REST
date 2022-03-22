@@ -5,23 +5,28 @@ const router = new Router()
 const propietarios_controller = require('../controllers/propietarios.js')
 
 router.get('/propietarios', (req, res) => {
-  propietarios_controller.get
+  res.json(propietarios_controller.get())
 })
 
 router.get('/propietarios/:rfc', (req, res) => {
-  propietarios_controller.getById
+  const { rfc } = req.params
+  res.json(propietarios_controller.getById(rfc))
 })
 
 router.post('/propietarios', (req, res) => {
-  propietarios_controller.create
+  let nuevoPropietario = req.body
+  res.json(propietarios_controller.create(nuevoPropietario))
 })
 
 router.put('/propietarios/:rfc', (req, res) => {
-  propietarios_controller.update
+  let { rfc } = req.params
+  let body = req.body
+  res.json(propietarios_controller.update(rfc, body))
 })
 
 router.delete('/propietarios/:rfc', (req, res) => {
-  propietarios_controller.deleteElement
+  let { rfc } = req.params
+  res.json(propietarios_controller.deleteElement(rfc))
 })
 
 module.exports = router

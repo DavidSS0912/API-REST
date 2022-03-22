@@ -4,19 +4,24 @@ const router = new Router()
 const arrendatarios_controller = require('../controllers/arrendatarios.js')
 
 router.get('/arrendatarios', (req, res) => {
-  arrendatarios_controller.get
+  res.json(arrendatarios_controller.get())
 })
 
 router.get('/arrendatarios/:name', (req, res) => {
-  arrendatarios_controller.getById
+  let { name } = req.params
+  res.json(arrendatarios_controller.getById(name))
 })
 
 router.put('/arrendatarios/:id', (req, res) => {
-  arrendatarios_controller.update
+  let { id } = req.params
+  let body = req.body
+  res.json(arrendatarios_controller.update(id, body))
 })
 
 router.delete('/arrendatarios/:name/:id', (req, res) => {
-  arrendatarios_controller.deleteElement
+  let { id } = req.params
+  let { name } = req.params
+  res.json(arrendatarios_controller.deleteElement(id, name))
 })
 
 module.exports = router

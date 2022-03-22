@@ -1,4 +1,4 @@
-const { Router } = require('express')
+let { Router } = require('express')
 const router = new Router()
 
 const propiedades_controller = require('../controllers/propiedades')
@@ -8,20 +8,24 @@ router.get('/propiedades', (req, res) => {
 })
 
 router.get('/propiedades/:id', (req, res) => {
-  const { id } = req.params
+  let { id } = req.params
   res.json(propiedades_controller.getById(id))
 })
 
 router.post('/propiedades', (req, res) => {
-  res.json(propiedades_controller.create())
+  let nuevaPropiedad = req.body
+  res.json(propiedades_controller.create(nuevaPropiedad))
 })
 
 router.put('/propiedades/:id', (req, res) => {
-  res.json(propiedades_controller.update())
+  let { id } = req.params
+  let body = req.body
+  res.json(propiedades_controller.update(id, body))
 })
 
 router.delete('/propiedades/:id', (req, res) => {
-  res.json(propiedades_controller.deleteElement())
+  let { id } = req.params
+  res.json(propiedades_controller.deleteElement(id))
 })
 
 module.exports = router

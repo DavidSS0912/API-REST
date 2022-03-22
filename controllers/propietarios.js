@@ -1,63 +1,55 @@
 //Obtenemos los datos de un json (Simulamos la db)
 const propietarios = require('../modules/propietarios.json')
 
-const get = function (req, res) {
-  return res.json(propietarios)
+let get = () => {
+  return propietarios
 }
 
-const getById = function (req, res) {
-  const { rfc } = req.params
+let getById = (rfc) => {
   for (let index = 0; index < propietarios.length; index++) {
     const propietario = propietarios[index]
     if (propietario.rfc == rfc) {
-      return res.json(propietario)
+      return propietario
     } else if (index + 1 == propietarios.length) {
-      return res.status(500).json({ Error: 'No se encontro el rfc' })
+      return { Error: 'No se encontro el rfc' }
     }
   }
 }
 
-const create = function (req, res) {
-  let nuevoPropietario = {
-    rfc: req.body.rfc,
-    nombre: req.body.nombre,
-    propiedades: req.body.proiedades,
-  }
+let create = (nuevoPropietario) => {
   propietarios.push(nuevoPropietario)
-
-  return res.json(nuevoPropietario)
+  return nuevoPropietario
 }
 
-const update = function (req, res) {
-  const { rfc } = req.params
-
+const update = (rfc, body) => {
   for (let index = 0; index < propietarios.length; index++) {
     const propietario = propietarios[index]
     if (propietario.rfc == rfc) {
-      propietario.nombre = req.body.nombre
-      propietario.propiedades = req.body.propiedades
-      return res.json(propietario)
+      propietario.nombre = body.nombre
+      propietario.propiedades = body.propiedades
+      return propietario
     } else if (index + 1 == propietarios.length) {
-      return res.status(500).json({ Error: 'No se encontro el rfc' })
+      return { Error: 'No se encontro el rfc' }
     }
   }
 }
 
-const deleteElement = function (req, res) {
-  const { rfc } = req.params
+let deleteElement = (rfc) => {
   for (let index = 0; index < propietarios.length; index++) {
     const propietario = propietarios[index]
     if (propietario.rfc == rfc) {
       propietarios.splice(index, 1)
-      return res.json(propietario)
+      return propietario
     } else if (index + 1 == propietarios.length) {
-      return res.status(500).json({ Error: 'No se encontro el rfc' })
+      return { Error: 'No se encontro el rfc' }
     }
   }
 }
 
-module.exports = get
-module.exports = getById
-module.exports = create
-module.exports = update
-module.exports = deleteElement
+module.exports = {
+  get,
+  getById,
+  create,
+  update,
+  deleteElement,
+}

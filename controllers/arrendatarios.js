@@ -1,53 +1,46 @@
 const propiedades = require('../modules/propiedades.json')
 
-const get = function (req, res) {
+const get = () => {
   let arrendadores = propiedades.filter((propiedad) => {
     return propiedad.arrendador != ''
   })
-  return res.json(arrendadores)
+  return arrendadores
 }
-const getById = function (req, res) {
-  const { name } = req.params
-
+let getById = (name) => {
   let arrendadores = propiedades.filter((propiedad) => {
     return propiedad.arrendador == name
   })
 
-  return res.json(arrendadores)
+  return arrendadores
 }
 
-const update = function (req, res) {
-  const { id } = req.params
-
+let update = (id, body) => {
   for (let index = 0; index < propiedades.length; index++) {
     const propiedad = propiedades[index]
     if (propiedad.idCastral == id) {
-      propiedad.Descripcion = req.body.Descripcion
-      propiedad.arrendador = req.body.arrendador
-      propiedad.propietarios = req.body.propietarios
-      return res.json(propiedad)
+      propiedad.Descripcion = body.Descripcion
+      propiedad.arrendador = body.arrendador
+      propiedad.propietarios = body.propietarios
+      return propiedad
     } else if (index + 1 == propiedades.length) {
-      return res.status(500).json({ Error: 'No se encontro el id' })
+      return { Error: 'No se encontro el id' }
     }
   }
 }
-const deleteElement = function (req, res) {
-  const { name } = req.params
-  const { id } = req.params
+const deleteElement = (id, name) => {
   for (let index = 0; index < propiedades.length; index++) {
     const propiedad = propiedades[index]
     if (propiedad.arrendador == name && propiedad.idCastral == id) {
       propiedad.arrendador = ''
-      return res.json(propiedad)
+      return propiedad
     } else if (index + 1 == propiedades.length) {
-      return res
-        .status(500)
-        .json({ Error: 'No se encontro el nombre del arrendador' })
+      return { Error: 'No se encontro el nombre del arrendador' }
     }
   }
 }
-
-module.exports = get
-module.exports = getById
-module.exports = update
-module.exports = deleteElement
+module.exports = {
+  get,
+  getById,
+  update,
+  deleteElement,
+}
